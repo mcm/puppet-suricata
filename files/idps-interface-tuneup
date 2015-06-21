@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Copyright(C) 2014, Stamus Networks
+# All rights reserved
+# Part of Debian SELKS scripts
+# Written by Peter Manev <pmanev@stamus-networks.com>
+#
+# Please run on Debian
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# This script must reside in and be used from ->
+# /etc/network/if-up.d/idps-interface-tuneup_stamus
+# 
+
+/sbin/ethtool -G $IFACE rx 4096 >/dev/null 2>&1 ; 
+for i in rx tx sg tso ufo gso gro lro rxvlan txvlan; do /sbin/ethtool -K $IFACE $i off >/dev/null 2>&1; done; 
+
+/sbin/ethtool -N $IFACE rx-flow-hash udp4 sdfn >/dev/null 2>&1; 
+/sbin/ethtool -N $IFACE rx-flow-hash udp6 sdfn >/dev/null 2>&1; 
+/sbin/ethtool -C $IFACE rx-usecs 1 rx-frames 0 >/dev/null 2>&1; 
+/sbin/ethtool -C $IFACE adaptive-rx off >/dev/null 2>&1;
+
+exit 0
