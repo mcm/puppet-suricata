@@ -15,4 +15,12 @@ class suricata::configs {
         source          => "puppet:///modules/suricata/sysctl.d/99-suricata.conf",
 #        notify          => Service["procps"],
     }
+
+    file {"/etc/logrotate.d/suricata":
+        ensure          => present,
+        owner           => "root",
+        group           => "root",
+        mode            => "0644",
+        source          => "puppet:///modules/suricata/logrotate/suricata",
+    }
 }

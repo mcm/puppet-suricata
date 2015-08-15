@@ -1,0 +1,12 @@
+/var/log/suricata/*.json
+/var/log/suricata/*.log {
+    daily
+    rotate 3
+    compress
+    missingok
+    notifempty
+    sharedscripts
+    postrotate
+        pkill -HUP suricata || true
+    endscript
+}
