@@ -1,5 +1,5 @@
 define suricata::interface($threads="auto", $cluster_id=99, $cluster_type="cluster_flow", $defrag="true") {
-    $interface = {zzzzz
+    $interface = {
         "interface"         => $title,
         "threads"           => $threads,
         "cluster-id"        => $cluster_id,

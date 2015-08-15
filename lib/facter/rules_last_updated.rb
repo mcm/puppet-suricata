@@ -7,7 +7,7 @@ else
     rules_file = ""
 end
 
-if rules_file != ""
+if rules_file != "" and File.exists?(rules_file)
     Facter.add("rules_last_updated") do
         setcode do
             File.mtime(rules_file).to_i

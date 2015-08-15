@@ -27,6 +27,7 @@ class suricata::outputs {
                 } },
                 "smtp",
                 "ssh",
+                "flow",
             ],
         },
         "stats"             => {
