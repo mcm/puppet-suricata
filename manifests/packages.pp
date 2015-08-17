@@ -1,6 +1,6 @@
 class suricata::packages {
     if ($::suricata::auto_update) {
-        $ensure = "latest"
+        $ensure = "2.1~beta4-0ubuntu12"
     } else {
         $ensure = "installed"
     }

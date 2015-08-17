@@ -14,6 +14,7 @@ class suricata(
         include suricata::outputs
         include suricata::packages
         include suricata::pulledpork
+        include suricata::rules
         include suricata::services
         include suricata::settings
 
