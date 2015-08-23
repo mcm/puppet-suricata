@@ -6,6 +6,7 @@ class suricata::outputs {
             "filename"          => "eve.json",
             "types"             => [
                 { "alert"             => {
+                    "payload"           => "yes",
                     "xff"               => {
                         "enabled"           => "yes",
                         "mode"              => "extra-data",
@@ -32,6 +33,7 @@ class suricata::outputs {
         },
         "stats"             => {
             "enabled"           => "yes",
+            "append"            => "no",
             "filename"          => "stats.log",
         },
     }

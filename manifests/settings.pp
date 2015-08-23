@@ -11,6 +11,7 @@ class suricata::settings {
         ],
         "rule-files"                            => ["suricata.rules", "hd.rules", "local.rules"],
         "runmode"                               => "workers",
+        "stats.interval"                        => "60",
         "stream.reassembly.chunk-prealloc"      => "500",
         "stream.reassembly.depth"               => "10mb",
         "stream.reassembly.memcap"              => "512mb",

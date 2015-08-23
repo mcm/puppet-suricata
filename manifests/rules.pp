@@ -6,7 +6,7 @@ define suricata::rulesfile($global=true, $extra=true, $local=true) {
         tag             => ["suricata", "pulledpork"],
     }
 
-    $empty = "puppet:///modules/suricata/rules/empty.rules"
+    $empty = "puppet:///modules/suricata/empty_file"
 
     if ($global) {
         concat::fragment {"suricata_rules_${title}_global":

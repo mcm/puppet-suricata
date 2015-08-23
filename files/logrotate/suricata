@@ -7,6 +7,6 @@
     notifempty
     sharedscripts
     postrotate
-        pkill -HUP suricata || true
+        /bin/kill -HUP $(cat /var/run/suricata.pid)
     endscript
 }

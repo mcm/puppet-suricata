@@ -13,4 +13,9 @@ class suricata::packages {
         ensure          => $ensure,
         tag             => "suricata",
     }
+
+    package {"ethtool":
+        ensure          => installed,
+        tag             => "suricata",
+    }
 }
