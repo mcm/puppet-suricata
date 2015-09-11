@@ -154,7 +154,7 @@ Puppet::Type.newtype(:suricata_setting) do
       if @resource[:type] == 'symbol'
         should.first.to_sym == is.first
       else
-        super(is)
+        should.to_s == is.to_s
       end
     end
   end
