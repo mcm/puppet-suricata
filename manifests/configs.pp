@@ -26,30 +26,30 @@ class suricata::configs {
 
     $empty = "puppet:///modules/suricata/empty_file"
 
-    concat {"/etc/suricata/threshold.conf":
+    concat {"/etc/suricata/threshold.config":
       owner           => "root",
       group           => "root",
       mode            => "0644",
       tag             => ["suricata", "pulledpork"],
     }
 
-    concat::fragment {"threshold.conf_global":
-      target          => "/etc/suricata/threshold.conf",
-      source          => "puppet:///modules/suricata/threshold.conf",
+    concat::fragment {"threshold.config_global":
+      target          => "/etc/suricata/threshold.config",
+      source          => "puppet:///modules/suricata/threshold.config",
       order           => "01",
     }
 
     if ($::suricata::extra_source != "") {
-      concat::fragment {"threshold.conf_extra":
-        target          => "/etc/suricata/threshold.conf",
-        source          => ["$::suricata::extra_source/threshold.conf", $empty],
+      concat::fragment {"threshold.config_extra":
+        target          => "/etc/suricata/threshold.config",
+        source          => ["$::suricata::extra_source/threshold.config", $empty],
         order           => "51",
       }
     }
 
-    concat::fragment {"threshold.conf_local":
-      target          => "/etc/suricata/threshold.conf",
-      source          => ["puppet:///files/threshold.conf", $empty],
+    concat::fragment {"threshold.config_local":
+      target          => "/etc/suricata/threshold.config",
+      source          => ["puppet:///files/threshold.config", $empty],
       order           => "99",
     }
 }
