@@ -7,6 +7,9 @@ class suricata::interfaces {
     }
 
     if ($::suricata::interfaces != undef) {
+        network::interface {$::suricata::interfaces:
+            method          => "manual",
+        }
         suricata::interface {$::suricata::interfaces: }
     }
 }

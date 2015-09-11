@@ -6,7 +6,6 @@ define suricata::interface($threads="auto", $cluster_id=99, $cluster_type="clust
         "cluster-type"      => $cluster_type,
         "defrag"            => $defrag,
     }
-    zdebug($interface)
 
     $listen_mode = $::suricata::listen_mode
 
