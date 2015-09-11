@@ -12,4 +12,8 @@ define suricata::interface($threads="auto", $cluster_id=99, $cluster_type="clust
     Suricata_setting<| title==$listen_mode |> {
         value           +> [$interface],
     }
+
+    sysctl {"net.ipv6.conf.${title}.disable_ipv6":
+        value           => "1",
+    }
 }
